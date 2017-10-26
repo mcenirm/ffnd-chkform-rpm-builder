@@ -12,7 +12,7 @@ rpm: sources .stamp.built.rpm
 
 sources: .stamp.downloaded.freeform_handler autobits
 
-autobits: autobits/configure
+autobits: SOURCES/autobits/configure
 
 
 .stamp.downloaded.freeform_handler: .stamp.built.downloader SOURCES/$(FREEFORM_HANDLER_FILE)
@@ -38,5 +38,5 @@ SOURCES/$(FREEFORM_HANDLER_FILE):
 	@date -u > $@
 
 
-autobits/configure: .stamp.built.builder autobits/configure.ac autobits/Makefile.am
-	docker-compose run --rm builder bash -c 'cd autobits && autoreconf --install && autoconf'
+SOURCES/autobits/configure: .stamp.built.builder SOURCES/autobits/configure.ac SOURCES/autobits/Makefile.am
+	docker-compose run --rm builder bash -c 'cd SOURCES/autobits && autoreconf --install && autoconf'
