@@ -6,13 +6,11 @@ FREEFORM_HANDLER_NAME=freeform_handler
 FREEFORM_HANDLER_FILE=$(FREEFORM_HANDLER_NAME)-$(FREEFORM_HANDLER_VERSION).tar.gz
 
 
-.PHONY: rpm sources autobits
+.PHONY: rpm sources
 
 rpm: sources .stamp.built.rpm
 
-sources: .stamp.downloaded.freeform_handler autobits
-
-autobits: SOURCES/autobits/configure
+sources: .stamp.downloaded.freeform_handler
 
 
 .stamp.downloaded.freeform_handler: .stamp.built.downloader SOURCES/$(FREEFORM_HANDLER_FILE)
@@ -33,10 +31,6 @@ SOURCES/$(FREEFORM_HANDLER_FILE):
 	@date -u > $@
 
 
-.stamp.built.rpm: .stamp.built.builder SPECS/freeform-nd.spec
+.stamp.built.rpm: .stamp.built.builder SPECS/freeform-nd.spec SOURCES/configure.ac
 	docker-compose run --rm builder
 	@date -u > $@
-
-
-SOURCES/autobits/configure: .stamp.built.builder SOURCES/autobits/configure.ac SOURCES/autobits/Makefile.am
-	docker-compose run --rm builder bash -c 'cd SOURCES/autobits && autoreconf --install && autoconf'

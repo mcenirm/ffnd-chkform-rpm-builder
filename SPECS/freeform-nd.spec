@@ -8,6 +8,7 @@ License: Public domain
 Group: Applications/Engineering
 URL: https://github.com/OPENDAP/freeform_handler/tree/master/FFND
 Source0: https://www.opendap.org/pub/source/freeform_handler-%{version}.tar.gz
+Source1: configure.ac
 
 %description
 FreeForm ND is a way to describe data formats. Originally
@@ -17,6 +18,8 @@ freeform_handler extension.
 
 %prep
 %autosetup -n freeform_handler-%{version}/FFND
+cp %{SOURCE1} ./
+autoreconf --install && autoconf
 
 %build
 %configure
