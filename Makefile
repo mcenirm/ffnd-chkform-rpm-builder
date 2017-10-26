@@ -18,7 +18,7 @@ sources: .stamp.downloaded.freeform_handler
 
 
 SOURCES/$(FREEFORM_HANDLER_FILE):
-	docker-compose up downloader
+	docker-compose run --rm downloader
 
 
 .stamp.built.downloader: downloader/Dockerfile
@@ -32,5 +32,5 @@ SOURCES/$(FREEFORM_HANDLER_FILE):
 
 
 .stamp.built.rpm: .stamp.built.builder
-	docker-compose up builder
+	docker-compose run --rm builder
 	@date -u > $@
