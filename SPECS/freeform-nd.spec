@@ -16,7 +16,7 @@ this version is maintained by opendap.org as part of their
 freeform_handler extension.
 
 %prep
-%autosetup
+%autosetup -n freeform_handler-%{version}/FFND
 
 %build
 %configure
