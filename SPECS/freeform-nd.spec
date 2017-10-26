@@ -9,6 +9,7 @@ Group: Applications/Engineering
 URL: https://github.com/OPENDAP/freeform_handler/tree/master/FFND
 Source0: https://www.opendap.org/pub/source/freeform_handler-%{version}.tar.gz
 Source1: configure.ac
+Patch0: install-ffnd.patch
 
 %description
 FreeForm ND is a way to describe data formats. Originally
