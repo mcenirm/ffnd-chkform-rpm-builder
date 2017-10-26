@@ -1,4 +1,5 @@
 AC_INIT([freeform-nd], [8.8.3])
+AC_CONFIG_MACRO_DIR([m4])
 LT_INIT
 AM_INIT_AUTOMAKE
 
