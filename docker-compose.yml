@@ -6,3 +6,9 @@ services:
       - ".:/home/downloader/rpmbuild"
     working_dir: "/home/downloader/rpmbuild"
     command: "spectool -g -R SPECS/freeform-nd.spec"
+  builder:
+    build: "builder"
+    volumes:
+      - ".:/home/builder/rpmbuild"
+    working_dir: "/home/builder/rpmbuild"
+    command: "rpmbuild -ba SPECS/freeform-nd.spec"

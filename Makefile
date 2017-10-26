@@ -8,7 +8,7 @@ FREEFORM_HANDLER_FILE=$(FREEFORM_HANDLER_NAME)-$(FREEFORM_HANDLER_VERSION).tar.g
 
 .PHONY: rpm sources
 
-rpm: sources
+rpm: sources .stamp.built.builder
 
 sources: .stamp.downloaded.freeform_handler
 
@@ -23,4 +23,9 @@ SOURCES/$(FREEFORM_HANDLER_FILE):
 
 .stamp.built.downloader: downloader/Dockerfile
 	docker-compose build downloader
+	@date -u > $@
+
+
+.stamp.built.builder: builder/Dockerfile
+	docker-compose build builder
 	@date -u > $@
