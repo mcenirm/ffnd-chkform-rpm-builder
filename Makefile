@@ -38,5 +38,5 @@ SOURCES/$(FREEFORM_HANDLER_FILE):
 	@date -u > $@
 
 
-autobits/configure: .stamp.built.builder autobits/configure.ac
+autobits/configure: .stamp.built.builder autobits/configure.ac autobits/Makefile.am
 	docker-compose run --rm builder bash -c 'cd autobits && autoreconf --install && autoconf'
