@@ -31,6 +31,6 @@ SOURCES/$(FREEFORM_HANDLER_FILE):
 	@date -u > $@
 
 
-.stamp.built.rpm: .stamp.built.builder
+.stamp.built.rpm: .stamp.built.builder SPECS/freeform-nd.spec
 	docker-compose run --rm builder
 	@date -u > $@
