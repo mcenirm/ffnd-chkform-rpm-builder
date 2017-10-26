@@ -29,6 +29,18 @@ make %{?_smp_mflags}
 %install
 %make_install
 
+%files
+%{_bindir}/bufform
+%{_bindir}/checkvar
+%{_bindir}/chkform
+%{_bindir}/newform
+%{_bindir}/readfile
+%{_libdir}/libfreeform.a
+%{_libdir}/libfreeform.la
+%{_libdir}/libfreeform.so
+%{_libdir}/libfreeform.so.0
+%{_libdir}/libfreeform.so.0.0.0
+
 %changelog
 * Wed Oct 25 2017 Michael McEniry <michael.mceniry@uah.edu> 3.8.8-1
 - Initial packaging as RPM

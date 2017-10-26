@@ -1,2 +1,5 @@
 /.stamp.*
 /BUILD/
+/BUILDROOT/
+/RPMS/
+/SRPMS/
